@@ -1,0 +1,51 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+    background: #aaaaaa;
+}
+
+header {
+    background: #cccccc;
+    padding: 0.625em;
+}
+
+footer {
+    background: #f0f0f0;
+    text-align: center;
+}
+
+nav {
+    background: #000000;
+    color: #ffffff;
+}
+
+#container {
+    background: #ffffff;
+    margin: auto;
+    text-align: left;
+    max-width: 60em;    /* 960px / 16px = 60em */
+    border: 1px solid black;
+}
+
+label {
+    display: inline-block;
+    width: 12.5em;      /* 200px / 16px = 12.5em */
+}
+
+li {
+    list-style: none;
+}
+
+nav li {
+    display: inline;
+}
+
+.content {
+    margin: 0.625em;    /* 10px / 16px = 0.625em */
+}
+
+.progress {
+    float: right;
+    background: #f0f0ff;
+    width: 21.25em;    /* 640px / 16px = 0.3541em */
+}
