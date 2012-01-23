@@ -31,14 +31,15 @@
 				</div>
 				<div class="main">
 					<h2>Lorem Ipsum Dolor Sit Amet.</h2>
-                    <form name="changeEmotion">
+                    <form name="changeEmotion" onsubmit="checkEmotion()">
                         <ul>
                             <li>
                                 <label for="emotion">How do you feel today?</label>
                                 <input type="text" id="emotion" name="emotion" value="" />
                             </li>
                             <li>
-                                <label for="wants">How would you like to feel?<br />(choose all that apply)</label>
+                                <label for="wants">How would you like to feel?
+                                (choose all that apply)</label>
                                 <select id="wants" name="wants" multiple="multiple" size="4">
                                     <option>Comfortably numb</option>
                                     <option>Grumpy as poop, you jerk</option>
@@ -48,7 +49,7 @@
                             </li>
                             <li>
                                 <label for="submit"></label>
-                                <input type="button" id="submit" name="submit" value="Feel me!" onclick="checkEmotion()" />
+                                <input type="submit" id="submit" name="submit" value="Feel me!" />
                             </li>
                         </ul>
                     </form>

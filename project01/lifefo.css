@@ -74,6 +74,7 @@ h1, h2, h3 {
 }
 
 label {
+    border: 1px solid black;
     display: inline-block;
     width: 12.5em;      /* 200px / 16px = 12.5em */
 }
@@ -83,6 +84,8 @@ label {
 }
 
 .main li {
+    border: 1px solid black;
+    vertical-align: top;
     list-style: none;
     margin-bottom: 1.25em;  /* 20px / 16px = 1.25em */
 }
