@@ -22,7 +22,6 @@ footer {
 }
 
 nav {
-    margin: auto;
     background: #000000;
     color: #ffffff;
     padding 0.625em;
@@ -30,15 +29,14 @@ nav {
 }
 
 #container {
+	margin: auto;
     background: #ffffff;
-    margin: auto;
     text-align: left;
     max-width: 60em;    /* 960px / 16px = 60em */
     border: 1px solid black;
 }
 
 header h1 {
-    padding: 0;
     letter-spacing: -2px;
 }
 
@@ -48,13 +46,11 @@ header p {
 }
 
 nav ul {
-    display: inline-block;
-    list-style: none;
-    margin: auto;
+    list-style-type: none;
 }
 
 nav li {
-    display: inline-block;
+	display: inline-block;
     padding: 0.625em;
 }
 
@@ -74,7 +70,7 @@ h1, h2, h3 {
 }
 
 label {
-    border: 1px solid black;
+	vertical-align: top;
     display: inline-block;
     width: 12.5em;      /* 200px / 16px = 12.5em */
 }
@@ -83,8 +79,7 @@ label {
     margin-bottom: 0.625em; /* 26px / 16px = 1.625em */
 }
 
-.main li {
-    border: 1px solid black;
+.main .row {
     vertical-align: top;
     list-style: none;
     margin-bottom: 1.25em;  /* 20px / 16px = 1.25em */
