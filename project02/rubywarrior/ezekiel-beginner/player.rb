@@ -20,6 +20,8 @@ class Player
       end
     elsif warrior.feel.captive?
       warrior.rescue!
+    elsif warrior.feel.wall?
+      warrior.pivot!
     else
       warrior.attack!
     end
