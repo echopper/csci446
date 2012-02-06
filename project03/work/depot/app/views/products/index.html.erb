@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Image</th>
     <th>Title</th>
     <th>Description</th>
     <th>Image url</th>
@@ -12,7 +13,10 @@
   </tr>
 
 <% @products.each do |product| %>
-  <tr>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+    <td>
+      <%= image_tag(product.image_url, :class => 'list_image') %>
+    </td>
     <td><%= product.title %></td>
     <td><%= product.description %></td>
     <td><%= product.image_url %></td>
