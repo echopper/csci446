@@ -5,5 +5,5 @@ one:
   order: one
 
 two:
-  produc: ruby
+  product: ruby
   cart: one
