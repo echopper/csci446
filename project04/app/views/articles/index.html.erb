@@ -1,4 +1,11 @@
-<h1>Listing articles</h1>
+<% content_for :header do %>
+  <h3>...with a name .com hipsters love!</h3>
+<% end %>
+
+<h2>All the World's Articles</h2>
+<%= link_to new_article_path do %>
+  <span><%= image_tag 'add.png' %> Create an Article</span>
+<% end %>
 
 <table>
   <tr>
@@ -19,11 +26,8 @@
     <td><%= article.created_at.to_s :us_with_weekday %></td>
     <td><%= link_to image_tag('magnifier.png'), article %></td>
     <td><%= link_to image_tag('pencil.png'), edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article, :confirm => 'Are you sure?' %></td>
+    <td><%= link_to image_tag('bin.png'), article, confirm: 'Are you sure?', method: :delete  %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Article', new_article_path %>
+<p><%= pluralize @articles.count, "article" %></p>

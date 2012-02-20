@@ -1,25 +1,34 @@
+<% content_for :header do %>
+  <h3>... what's "Articl" in Spanish anyway?</h3>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
+<nav>
+  <ul>
+    <li><%= link_to Article, title: 'Back to the List' do %>
+      <%= image_tag 'arrow_left.png' %> list all articles
+    <% end %></li>
+    <li><%= link_to edit_article_path(@article), title: 'Edit this article' do %>
+      <%= image_tag 'pencil.png' %> edit
+    <% end %></li>
+    <li><%= link_to @article, title: 'Delete the article', confirm: 'Are you sure?', method: :delete do %>
+      <%= image_tag 'bin.png' %> delete
+    <% end %></li>
+    <li><%= mail_to 'editor@articl.es', image_tag('email.png')+' email', subject: @article.title, body: article_path(@article) %>
+    </li>
+  </ul>
+</nav>
+
+<h2>
   <%= @article.title %>
+</h2>
+
+<p>by <%= @article.author_name %>. <%= pluralize @article.number_of_edits, "edit" %>
+  since
+  <%= @article.created_at.to_s :us_sans_weekday %> 
 </p>
 
 <p>
-  <b>Author name:</b>
-  <%= @article.author_name %>
-</p>
-
-<p>
-  <b>Body:</b>
   <%= @article.body %>
 </p>
-
-<p>
-  <b>Number of edits:</b>
-  <%= @article.number_of_edits %>
-</p>
-
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>

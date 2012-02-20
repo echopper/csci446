@@ -35,6 +35,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
     @article = Article.find(params[:id])
+    session[:came_from] = request.env['HTTP_REFERER'] || articles_url
   end
 
   # POST /articles
@@ -57,6 +58,7 @@ class ArticlesController < ApplicationController
   # PUT /articles/1.json
   def update
     @article = Article.find(params[:id])
+    @article.number_of_edits += 1
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
