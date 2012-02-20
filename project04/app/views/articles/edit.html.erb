@@ -4,13 +4,12 @@
 
 <nav>
   <ul>
-    <li><%= link_to 'back', session[:came_from] %>
+    <li><%= link_to session[:came_from] do %>
+      <%= image_tag 'arrow_left.png' %> back
+    <% end %></li>
   </ul>
 </nav>
 
 <h2>Editing "<%= @article.title %>"</h2>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>
+<%= render 'form', submit_button: 'Save Changes' %>

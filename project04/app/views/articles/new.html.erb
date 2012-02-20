@@ -1,5 +1,15 @@
-<h1>New article</h1>
+<% content_for :header do %>
+  <h3>... not just for the country of Spain</h3>
+<% end %>
 
-<%= render 'form' %>
+<nav>
+  <ul>
+    <li><%= link_to Article do %>
+      <%= image_tag 'arrow_left.png' %> list all articles
+    <% end %></li>
+  </ul>
+</nav>
 
-<%= link_to 'Back', articles_path %>
+<h1>Creating a New Article</h1>
+
+<%= render 'form', submit_button: 'Create!' %>
