@@ -15,7 +15,7 @@
     <li><%= link_to @article, title: 'Delete the article', confirm: 'Are you sure?', method: :delete do %>
       <%= image_tag 'bin.png' %> delete
     <% end %></li>
-    <li><%= mail_to 'editor@articl.es', image_tag('email.png')+' email', subject: @article.title, body: article_path(@article) %>
+    <li><%= mail_to 'editor@articl.es', image_tag('email.png')+' email', subject: @article.title, body: article_path(@article), title: 'Email the author!' %>
     </li>
   </ul>
 </nav>
@@ -30,5 +30,5 @@
 </p>
 
 <p>
-  <%= @article.body %>
+  <%= sanitize @article.body %>
 </p>

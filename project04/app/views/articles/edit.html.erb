@@ -4,7 +4,7 @@
 
 <nav>
   <ul>
-    <li><%= link_to session[:came_from] do %>
+    <li><%= link_to session[:came_from], title: 'Go Back Where Ye\' Came From' do %>
       <%= image_tag 'arrow_left.png' %> back
     <% end %></li>
   </ul>
