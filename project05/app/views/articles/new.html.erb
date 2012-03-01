@@ -1,0 +1,15 @@
+<% content_for :header do %>
+  <h3>... not just for the country of Spain</h3>
+<% end %>
+
+<nav>
+  <ul>
+    <li><%= link_to Article, title: 'Go Back Where Ye\' Came From' do %>
+      <%= image_tag 'arrow_left.png' %> list all articles
+    <% end %></li>
+  </ul>
+</nav>
+
+<h1>Creating a New Article</h1>
+
+<%= render 'form', submit_button: 'Create!' %>
