@@ -4,9 +4,9 @@
 %nav
   %ul
     %li
-     = link_to session[:came_from], title: 'Go Back Where Ye\' Came From' do
+      = link_to session[:came_from], title: 'Go Back Where Ye\' Came From' do
         = image_tag('arrow_left.png')
-        %span back
+        back
 %h2 Editing #{ @article.title }
 
 = render 'form', submit_button: 'Save Changes'
