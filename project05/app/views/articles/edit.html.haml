@@ -1,0 +1,12 @@
+- content_for :header do
+  %h3 ... my cousin works for Bit.ly
+
+%nav
+  %ul
+    %li
+     = link_to session[:came_from], title: 'Go Back Where Ye\' Came From' do
+        = image_tag('arrow_left.png')
+        %span back
+%h2 Editing #{ @article.title }
+
+= render 'form', submit_button: 'Save Changes'

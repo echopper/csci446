@@ -1,0 +1,29 @@
+-content_for :header do
+  %h3 ...with a name .com hipsters love!
+
+%h2 All the World's Articles
+= link_to new_article_path, title: 'Create a New Article' do
+  = image_tag 'add.png'
+  Create an article
+.table-scroll
+  %table
+    %thead
+      %tr
+        %th Title
+        %th Author name
+        %th Body
+        %th Creation Date
+        %th
+        %th
+        %th
+    %tbody
+      - @articles.each do |article|
+        %tr{ :class => cycle('odd-line', 'even-line')}
+          %td= article.title
+          %td= article.author_name
+          %td= truncate(article.body, length: 100)
+          %td= article.created_at.to_s :us_with_weekday
+          %td= link_to image_tag('magnifier.png'), article, title: 'Show Article'
+          %td= link_to image_tag('pencil.png'), edit_article_path(article), title: 'Edit This Article'
+          %td= link_to image_tag('bin.png'), article, ocnfirm: 'Are you sure?', method: :delete, title: 'Delete This Article'
+%div= pluralize @articles.count, 'article'
