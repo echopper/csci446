@@ -20,7 +20,7 @@
       - @articles.each do |article|
         %tr{ :class => cycle('odd-line', 'even-line')}
           %td= article.title
-          %td= article.author_name
+          %td= Author.find_by_id(article.author_id).name
           %td= truncate(article.body, length: 100)
           %td= article.created_at.to_s :us_with_weekday
           %td= link_to image_tag('magnifier.png'), article, title: 'Show Article'

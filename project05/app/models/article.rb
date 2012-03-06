@@ -1,6 +1,5 @@
 class Article < ActiveRecord::Base
-  
-  validates :title, :author_name, :body, :presence => true
-  validates :author_name, format: %r{^((?!pat).*$)}i
+  belongs_to :author
+  validates :title, :author_id, :body, :presence => true
 
 end
