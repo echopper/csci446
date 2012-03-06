@@ -9,4 +9,8 @@
     %header
       %h1 Articl.es
       = yield :header
+      %nav
+        %ul
+          %li= link_to "Articl.es", Article
+          %li= link_to "Autho.rs", Author
     = yield

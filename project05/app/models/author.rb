@@ -3,4 +3,5 @@ class Author < ActiveRecord::Base
   validates :name, format: %r{^((?!pat).*$)}
   validates_uniqueness_of :name
 
+  has_attached_file :photo
 end

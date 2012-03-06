@@ -1,0 +1,17 @@
+- content_for :header do
+  %h3 Communitizing social media experts!
+
+%p#notice= notice
+
+= image_tag @author.photo.url
+%p
+  %b Name:
+  = @author.name
+%p
+  %b Articles:
+  %ul
+  - @author.articles.each do |article|
+    %li= article.title
+
+= link_to 'Edit', edit_author_path(@author)
+= link_to 'Back', authors_path

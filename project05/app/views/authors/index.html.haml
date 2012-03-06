@@ -1,0 +1,18 @@
+- content_for :header do
+  %h3 Creating synergy between our Autho.rs and our Reade.rs!
+
+%h1 Listing authors
+%table
+  %tr
+    %th Name
+    %th
+    %th
+    %th
+  - @authors.each do |author|
+    %tr
+      %td= author.name
+      %td= link_to 'Show', author
+      %td= link_to 'Edit', edit_author_path(author)
+      %td= link_to 'Destroy', author, confirm: 'Are you sure?', method: :delete
+
+= link_to 'New Author', new_author_path
