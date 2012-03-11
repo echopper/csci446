@@ -1,0 +1,84 @@
+Ezekiel Chopper
+
+1. PUT is more for uploading a file so that it is accessible at the specified URI (Uniform Resource Identifier). POST is used for passing some data to a URI which knows how to parse the data.
+
+2. Relative
+
+3. An absolute url will include a fully qualified domain name. A relative url only needs to identify where it needs to go relative to where it is coming from.
+
+4. A POST request.
+
+5. Yes, "request_type=PUT"
+
+6. It is missing alt text, or a tooltip, or some useful information for screen reading software.
+
+7. The database is where all the data is stored for the application. The Web Browser is what renders the UI of the Web Application.
+
+8. Usually yes, a 200 OK in response to a GET will return the body of the requested URI, and in response to a POST will contain some form of response from the web server.
+
+9:
+class Troll
+
+  attr_accessor :ugliness, :smelliness, :strength
+  def initialize
+    @grunt = "UNGAH"
+  end
+
+  def speak
+    42.times do
+      print @grunt
+    end
+  end
+
+  def reverse
+    @grunt.reverse
+  end
+
+  def propogate
+    eegah = Troll.new
+    eegah.grunt = "eegah"
+    return eegah
+  end
+
+end
+
+10. A public method named "fight".
+
+11. No it doesn't. Polymorphism is about using parent and child classes, respond_to? is more like using an interface.
+
+12. true or false
+
+13. The bang function is the 'dangerous' version of the function. Whatever you define 'dangerous' to be, the bang method is that way.
+
+14. Ruby is duck typed, which means that methods don't particularly have to care about what gets passed in, just so long as it can be manipulated by the procedures the method uses it will end up correct.
+
+15. An array of strings of individual words such as ["master", "rails", "and", ... ] etc.
+
+16. yes
+
+17. No, Ruby will automatically return the last value worked on. If in IRB a line generates a => return, the function will return that if it is the last line in the function
+
+18. show, create, update, delete
+
+19:
+HTTP  | controller  | CRUD
+GET   | index       | read
+POST  | new         | create
+POST  | create      | create
+POST  | edit        | update
+POST  | update      | update
+DELETE| destroy     | delete
+
+20. PUT and DELETE are not always well implemented, they just want to make sure that the maximum number of people can use the web application.
+
+21. In development debug statements are turned on, it re-reads in the files for each call, every time to make sure it catches updates to files. in Production all of that is turned off so the server can run lean and fast.
+
+22. When the name is more of a verb than a noun.
+
+23. A helper method helps keep the views and controllers clean and lean by defining them in the model, which increases readability.
+
+24. A join table with bee_id as one column and flower_id in the second
+
+25. Well, kind of, it depends on the size of your application and how popular. But in all reality, when you get popular that is going to be a problem. This will be a problem because asking the database for information takes time for it to go looking, to ask for one thing, walk away, come back and ask for a second takes more time than to walk in with a list of things you need.
+
+To speed this up you'd want to use Eager Loading by modifying your find method call to include all the things you need up front rather than making it figure out that it needs it when you call for the name of each thing.
