@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Gamez::Application.config.secret_token = '493f7f0c88792501016da410d0757da6a9d146de1e3965ac638a4859e33148368af08dc9c82b22fa9689ab8c136405cc9922bc58fb16216dddb3aea06d2d680f'
+Gamez::Application.config.secret_token = 'd9f20cff6959a4df2fcf001aeb0a9950d91b8de50166cea67ac2086f7a510a5c0bf8cca39637c13cc88dc8d8d8ffd45fb5b56512d2e3eb1a0be4ffef3bf5cf76'
