@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :first_name
       t.string :last_name
-      t.integer :games_count
+      t.integer :games_count, default: 0
 
       t.timestamps
     end
