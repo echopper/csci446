@@ -1,5 +1,16 @@
 var guessesLeft = 10;
+var answer = 42;
 var highScores = new Array([9, "HarryJamesPotter"], [3, "ZedCthulhu"], [2, "NearlyDied"]);
+
+$('document').ready(function() {
+  $('#btnGuess').click(function() {
+    var thisGuess = $('#guess').val();
+    if(thisGuess != answer) {
+      guessesLeft--;
+      updateScore(guessesLeft);
+    }
+  });
+});
 
 $(function() {
   updateScore(guessesLeft);
@@ -13,5 +24,5 @@ function populateHighScores(scores) {
 }
 
 function updateScore(score) {
-  $('h2#score span#guessesLeft').append(score);
+  $('h2#score span#guessesLeft').text(score);
 }
