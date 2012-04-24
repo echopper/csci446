@@ -80,9 +80,7 @@ function populateHighScores(scores) {
 
 function showHighScores() {
   $('div#highScores').text("");
-  for (var i = 0; i < highScores.length; ++i) {
-    $('div#highScores').append("<p>" + highScores[i][0] + " " + highScores[i][1] + "</p>");
-  }
+  populateHighScores(highScores);
 }
 
 function updateScore(score) {
@@ -90,8 +88,8 @@ function updateScore(score) {
 }
 
 function addScore(score, name) {
-  highScores.push([score, name]);
-  highScores.sort();
+  highScores.push([parseInt(score), name]);
+  highScores.sort(compareNumbers);
   highScores.reverse();
   showHighScores();
 }
@@ -104,6 +102,11 @@ function playAgain() {
   answer = getRandomInt(1,100);
   guessesLeft = 10;
   updateScore(guessesLeft);
+  $('#guess').val("");
   $('#prompt').slideUp();
   $('#guesser').slideDown();
+}
+
+function compareNumbers(a, b) {
+  return a[0] - b[0];
 }
