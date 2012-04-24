@@ -26,6 +26,11 @@ $('document').ready(function() {
     playAgain();
   });
 
+  $('input').keypress(function(event) {
+    if(event.keyCode == 13) {
+      return false;
+    }
+  });
 });
 
 // Initialize the game
