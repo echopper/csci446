@@ -14,9 +14,12 @@ $('document').ready(function() {
 
 
   $('#submitscore').click(function() {
-    addScore(guessesLeft, $('#name').val());
-    $('#winner').slideUp();
-    showPrompt("Play again?");
+    crownAChampion();
+  });
+  $('#name').keydown(function(event) {
+    if(event.keyCode == 13) {
+      crownAChampion();
+    }
   });
 
   $('#prompt a').click(function() {
@@ -25,9 +28,8 @@ $('document').ready(function() {
 
 });
 
-
+// Initialize the game
 $(function() {
-  //answer = getRandomInt(1,100);
   updateScore(guessesLeft);
   populateHighScores(highScores);
 });
@@ -52,6 +54,12 @@ function makeAGuess() {
     $('#guesser').slideUp();
     showPrompt("YOU HAVE LOST");
   }
+}
+
+function crownAChampion() {
+  addScore(guessesLeft, $('#name').val());
+  $('#winner').slideUp();
+  showPrompt("Play again?");
 }
 
 function showPrompt(prompt) {
