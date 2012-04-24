@@ -8,6 +8,10 @@ $('document').ready(function() {
     if(thisGuess == "") {
       alert("You must make a guess!");
     } else if(thisGuess != answer) {
+      if(thisGuess > answer)
+        alert("Oooh. You're high!");
+      else
+        alert("How low can you be?");
       if(guessesLeft > 0)
         guessesLeft--;
       updateScore(guessesLeft);
@@ -25,6 +29,10 @@ $('document').ready(function() {
     addScore(guessesLeft, $('#name').val());
     $('#winner').slideUp();
     showPrompt("Play again?");
+  });
+
+  $('#prompt a').click(function() {
+    playAgain();
   });
 
 });
@@ -69,10 +77,10 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function disableEnter() {
-  $('#guess').keyup(function(event) {
-    if(event.keyCode == 13) {
-      return false;
-    }
-  });
+function playAgain() {
+  answer = getRandomInt(1,100);
+  guessesLeft = 10;
+  updateScore(guessesLeft);
+  $('#prompt').slideUp();
+  $('#guesser').slideDown();
 }
