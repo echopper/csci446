@@ -10,14 +10,28 @@
 </head>
 <body>
   <h1>Guess-the-Number</h1>
-  <p class="subtitle">Fool! You have followed a link here and now your life depends on guessing my magic number!</p>
-  <p>Between 1 and 100! Because it is magic!</p>
-  <h2 id="score"><span id="guessesLeft"></span> Guesses Left</h2>
-  <form id="guessTheNumber">
-    <input type="number" min="1" max="100" step="1" name="guess" id="guess" />
-    <br />
-    <input type="button" id="btnGuess" value="Guess!" />
-  </form>
+
+  <div id="guesser" class="container">
+    <p class="subtitle">Fool! You have followed a link here and now your life depends on guessing my magic number!</p>
+    <p>Between 1 and 100! Because it is magic!</p>
+    <h2 id="score"><span id="guessesLeft"></span> Guesses Left</h2>
+    <form id="guessTheNumber">
+      <input type="number" min="1" max="100" step="1" name="guess" id="guess" />
+      <br />
+      <input type="button" id="btnGuess" value="Guess!" />
+    </form>
+  </div>
+  <div id="prompt" class="container">
+    <h2 id="display"></h2>
+    <a href="">Try again</a>
+  </div>
+  <div id="winner" class="container">
+    <h2>YOU HAVE GUESSED THE CORRECT NUMBER</h2>
+    <form id="newhighscore">
+      <input type="text" id="name" />
+      <input type="button" id="submitscore" value="Enter Score" />
+    </form>
+  </div>
 
   <h2><span class="highScore">High</span> Scores</h2>
   <div id="highScores"></div>

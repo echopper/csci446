@@ -5,17 +5,41 @@ var highScores = new Array([9, "HarryJamesPotter"], [3, "ZedCthulhu"], [2, "Near
 $('document').ready(function() {
   $('#btnGuess').click(function() {
     var thisGuess = $('#guess').val();
-    if(thisGuess != answer) {
-      guessesLeft--;
+    if(thisGuess == "") {
+      alert("You must make a guess!");
+    } else if(thisGuess != answer) {
+      if(guessesLeft > 0)
+        guessesLeft--;
       updateScore(guessesLeft);
+    } else {
+      $('#guesser').slideUp();
+      $('#winner').slideDown();
+    }
+    if(guessesLeft == 0) {
+      $('#guesser').slideUp();
+      showPrompt("YOU HAVE LOST");
     }
   });
+
+  $('#submitscore').click(function() {
+    addScore(guessesLeft, $('#name').val());
+    $('#winner').slideUp();
+    showPrompt("Play again?");
+  });
+
 });
 
+
 $(function() {
+  //answer = getRandomInt(1,100);
   updateScore(guessesLeft);
   populateHighScores(highScores);
 });
+
+function showPrompt(prompt) {
+  $('h2#display').text(prompt);
+  $('#prompt').slideDown();
+}
 
 function populateHighScores(scores) {
   for (var i = 0; i < scores.length; ++i) {
@@ -23,6 +47,32 @@ function populateHighScores(scores) {
   }
 }
 
+function showHighScores() {
+  $('div#highScores').text("");
+  for (var i = 0; i < highScores.length; ++i) {
+    $('div#highScores').append("<p>" + highScores[i][0] + " " + highScores[i][1] + "</p>");
+  }
+}
+
 function updateScore(score) {
   $('h2#score span#guessesLeft').text(score);
+}
+
+function addScore(score, name) {
+  highScores.push([score, name]);
+  highScores.sort();
+  highScores.reverse();
+  showHighScores();
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function disableEnter() {
+  $('#guess').keyup(function(event) {
+    if(event.keyCode == 13) {
+      return false;
+    }
+  });
 }
