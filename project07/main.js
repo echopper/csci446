@@ -1,29 +1,17 @@
 var guessesLeft = 10;
-var answer = 42;
+var answer = getRandomInt(1,100);
 var highScores = new Array([9, "HarryJamesPotter"], [3, "ZedCthulhu"], [2, "NearlyDied"]);
 
 $('document').ready(function() {
   $('#btnGuess').click(function() {
-    var thisGuess = $('#guess').val();
-    if(thisGuess == "") {
-      alert("You must make a guess!");
-    } else if(thisGuess != answer) {
-      if(thisGuess > answer)
-        alert("Oooh. You're high!");
-      else
-        alert("How low can you be?");
-      if(guessesLeft > 0)
-        guessesLeft--;
-      updateScore(guessesLeft);
-    } else {
-      $('#guesser').slideUp();
-      $('#winner').slideDown();
-    }
-    if(guessesLeft == 0) {
-      $('#guesser').slideUp();
-      showPrompt("YOU HAVE LOST");
+    makeAGuess();
+  });
+  $('#guess').keydown(function(event) {
+    if(event.keyCode == 13) {
+      makeAGuess();
     }
   });
+
 
   $('#submitscore').click(function() {
     addScore(guessesLeft, $('#name').val());
@@ -43,6 +31,28 @@ $(function() {
   updateScore(guessesLeft);
   populateHighScores(highScores);
 });
+
+function makeAGuess() {
+  var thisGuess = $('#guess').val();
+  if(thisGuess == "") {
+    alert("You must make a guess!");
+  } else if(thisGuess != answer) {
+    if(thisGuess > answer)
+      alert("Oooh. You're high!");
+    else
+      alert("How low can you be?");
+    if(guessesLeft > 0)
+      guessesLeft--;
+    updateScore(guessesLeft);
+  } else {
+    $('#guesser').slideUp();
+    $('#winner').slideDown();
+  }
+  if(guessesLeft == 0) {
+    $('#guesser').slideUp();
+    showPrompt("YOU HAVE LOST");
+  }
+}
 
 function showPrompt(prompt) {
   $('h2#display').text(prompt);
